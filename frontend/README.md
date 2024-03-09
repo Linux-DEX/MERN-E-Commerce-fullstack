@@ -73,5 +73,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 # Video time 
-*Time stamp* : 1:01
+*Time stamp* : 2:12:33
 [youtube video link](https://www.youtube.com/watch?v=y99YgaQjgx4)
