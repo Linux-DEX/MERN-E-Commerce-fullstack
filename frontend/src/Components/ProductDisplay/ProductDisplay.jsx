@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ProductDisplay.css";
 import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png";
+import { ShopContext } from "../../Context/ShopContext";
 
 const ProductDisplay = (props) => {
   const { product } = props;
+  const { addToCart } = useContext(ShopContext);
   return (
     <div className="productdisplay">
       <div className="productdisplay-left">
@@ -37,7 +39,9 @@ const ProductDisplay = (props) => {
           </div>
         </div>
         <div className="productdisplay-right-description">
-          A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershit or outer garment.
+          A lightweight, usually knitted, pullover shirt, close-fitting and with
+          a round neckline and short sleeves, worn as an undershit or outer
+          garment.
         </div>
         <div className="productdisplay-right-size">
           <h1>Select Size</h1>
@@ -49,7 +53,7 @@ const ProductDisplay = (props) => {
             <div>XXL</div>
           </div>
         </div>
-        <button>ADD TO CART</button>
+        <button onClick={() => addToCart(product.id)}>ADD TO CART</button>
         <p className="productdisplay-right-category">
           <span>Category :</span> Women, T-Shirt, Crop Top Women, T-Shirt, Crop
           Top
