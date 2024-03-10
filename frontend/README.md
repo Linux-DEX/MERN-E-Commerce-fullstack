@@ -73,6 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 # Video time 
-*Time stamp* : 2:58:49
+*Time stamp* : 4:06:39
 *NOTE* : completed design for frentend for the laptop screen.
 [youtube video link](https://www.youtube.com/watch?v=y99YgaQjgx4)
