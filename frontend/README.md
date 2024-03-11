@@ -73,6 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 # Video time 
-*Time stamp* : 4:50:39
-*NOTE* : completed design for frentend for the laptop screen.
+*Time stamp* : 4:59:06
+*NOTE* : Completed the responsive design for the frontend
 [youtube video link](https://www.youtube.com/watch?v=y99YgaQjgx4)

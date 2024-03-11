@@ -155,7 +155,7 @@
         width: auto;
         max-width: 500px;
     }
-    
+
     .cartitems-promobox input {
         width: 100%;
     }
@@ -172,6 +172,7 @@
         grid-template-columns: 0.5fr 3fr 0.5fr;
         gap: 10px;
     }
+
     .cartitems-format {
         display: grid;
     }
