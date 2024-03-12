@@ -73,6 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 # Video time 
-*Time stamp* : 6:11:32
+*Time stamp* : 7:24:50
 *NOTE* : Completed the responsive design for the frontend
 [youtube video link](https://www.youtube.com/watch?v=y99YgaQjgx4)
