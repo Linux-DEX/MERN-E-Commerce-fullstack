@@ -8,6 +8,7 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+const { type } = require("os");
 
 app.use(express.json());
 app.use(cors());
@@ -114,18 +115,73 @@ app.post("/addproduct", async (req, res) => {
 // Creating API for Deleting Products
 
 app.post("/removeproduct", async (req, res) => {
-    await Product.findOneAndDelete({ id: req.body.id });
-    console.log("Removed");
-    res.json({ success: true, name: req.body.name });
+  await Product.findOneAndDelete({ id: req.body.id });
+  console.log("Removed");
+  res.json({ success: true, name: req.body.name });
 });
 
 // Creating API for Getting All Products
 
-app.get('/allproducts', async (req, res) => { 
-    let products = await Product.find({});
-    console.log("All Products Fetched")
-    res.send(products);
- });
+app.get("/allproducts", async (req, res) => {
+  let products = await Product.find({});
+  console.log("All Products Fetched");
+  res.send(products);
+});
+
+// Schema creating for user model
+
+const Users = mongoose.model("Users", {
+  name: {
+    type: String,
+  },
+  email: {
+    type: String,
+    unique: true,
+  },
+  password: {
+    type: String,
+  },
+  cartData: {
+    type: Object,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  }
+});
+
+// Creating Endpoint for registering user
+
+app.post('/signup', async (req, res) => {
+
+  let check = await Users.findOne({ email: req.body.email });
+  if (check) {
+    return res.status(400).json({ success: false, errors: "Existing user found with same email address" });
+  }
+
+  let cart = {};
+  for (let i = 0; i < 300; i++){
+    cart[i] = 0;
+  }
+
+  const user = new Users({
+    name: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+    cartData: cart,
+  })
+
+  await user.save();
+
+  const data = {
+    user: {
+      id: user.id
+    }
+  }
+
+  const token = jwt.sign(data, 'secret_ecom');
+  res.json({ success: true, token })
+});
 
 app.listen(port, (error) => {
   if (!error) {
