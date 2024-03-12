@@ -155,12 +155,10 @@ const Users = mongoose.model("Users", {
 app.post("/signup", async (req, res) => {
   let check = await Users.findOne({ email: req.body.email });
   if (check) {
-    return res
-      .status(400)
-      .json({
-        success: false,
-        errors: "Existing user found with same email address",
-      });
+    return res.status(400).json({
+      success: false,
+      errors: "Existing user found with same email address",
+    });
   }
 
   let cart = {};
@@ -212,6 +210,20 @@ app.post("/login", async (req, res) => {
 });
 
 // creating Endpoint for newcollection data
+app.get("/newcollections", async (req, res) => {
+  let products = await Product.find({});
+  let newcollection = products.slice(1).slice(-8);
+  console.log("new collection fetched");
+  res.send(newcollection);
+});
+
+// creating endpoint for popular in women section
+app.get("/popularinwomen", async (req, res) => {
+  let products = await Product.find({category: "women"});
+  let popular_in_women = products.slice(1).slice(-4);
+  console.log("popular in women fetched");
+  res.send(popular_in_women);
+});
 
 app.listen(port, (error) => {
   if (!error) {
