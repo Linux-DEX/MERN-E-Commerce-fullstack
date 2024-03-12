@@ -1,3 +1,5 @@
+const { username, password } = require("./user-pass.js");
+
 const port = 4000;
 const express = require("express");
 const app = express();
@@ -12,7 +14,8 @@ app.use(cors());
 
 // Database Connection with MongoDB
 mongoose.connect(
-  "mongodb+srv://sarabjeet:iamsarabjeet@cluster0.eg0zqws.mongodb.net/e-commerce"
+  // "mongodb+srv://sarabjeet:iamsarabjeet@cluster0.eg0zqws.mongodb.net/e-commerce"
+  `mongodb+srv://${username}:${password}@cluster0.eg0zqws.mongodb.net/e-commerce`
 );
 
 // API Creation
