@@ -211,6 +211,8 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// creating Endpoint for newcollection data
+
 app.listen(port, (error) => {
   if (!error) {
     console.log(`Server running on port ${port}`);
