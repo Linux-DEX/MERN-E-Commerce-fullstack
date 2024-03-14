@@ -15,7 +15,6 @@ app.use(cors());
 
 // Database Connection with MongoDB
 mongoose.connect(
-  // "mongodb+srv://sarabjeet:iamsarabjeet@cluster0.eg0zqws.mongodb.net/e-commerce"
   `mongodb+srv://${username}:${password}@cluster0.eg0zqws.mongodb.net/e-commerce`
 );
 
